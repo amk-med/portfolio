@@ -4,12 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title data-i18n="title">Mohamed Amarkouchi | Kreativer Entwickler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
   <!-- Language Switcher -->
   <div class="lang-switcher" role="navigation" aria-label="Language switcher">
-    <button class="lang-btn" aria-expanded="false" aria-haspopup="true">DE</button>
+    <button class="lang-btn" aria-expanded="false" aria-haspopup="true">
+      <span id="langFlag">DE</span>
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
     <ul class="lang-list" role="menu" aria-hidden="true">
       <li role="menuitem" data-lang="de">DE</li>
       <li role="menuitem" data-lang="en">EN</li>
@@ -18,373 +28,488 @@
     </ul>
   </div>
 
+  <!-- Sticky Nav -->
+  <nav class="topnav" id="topnav">
+    <a href="#about" class="nav-link" data-i18n="ctaWork1">Über mich</a>
+    <a href="#projects" class="nav-link" data-i18n="ctaWork">Projekte</a>
+    <a href="#certificates" class="nav-link" data-i18n="ctaCerts">Zertifikate</a>
+    <a href="#contact" class="nav-link" data-i18n="ctaWork2">Kontakt</a>
+  </nav>
+
   <!-- Hero -->
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1 data-i18n="heroName">Mohamed Amarkouchi</h1>
-      <p data-i18n="heroTagline">Kreativer Entwickler & UI-Designer</p>
-      <a href="#projects" class="btn" data-i18n="ctaWork">Meine Arbeiten ansehen</a>
-      <a href="#about" class="btn" data-i18n="ctaWork1">Über mich</a>
-      <a href="#contact" class="btn" data-i18n="ctaWork2">Kontakt</a>
+  <header class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span data-i18n="heroAvail">Offen für Ausbildung</span>
+      </div>
+      <h1 class="hero-name">
+        <span class="name-line name-first" data-i18n="heroFirstLine">Mohamed</span>
+        <span class="name-line name-accent" data-i18n="heroSecondLine">Amarkouchi</span>
+      </h1>
+      <p class="hero-tagline" data-i18n="heroTagline">Kreativer Entwickler &amp; UI-Designer</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary" data-i18n="ctaWork">Meine Projekte</a>
+        <a href="#contact" class="btn-ghost" data-i18n="ctaWork2">Kontakt</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">5+</span><span class="stat-label" data-i18n="statProjects">Projekte</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label" data-i18n="statCerts">Zertifikate</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label" data-i18n="statLangs">Sprachen</span></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span data-i18n="scrollHint">scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </header>
 
   <!-- About -->
- <section id="about" class="about">
-  <h2 data-i18n="aboutHeading">Über mich</h2>
+  <section id="about" class="about reveal-section">
+    <div class="about-inner">
+      <div class="about-label" data-i18n="aboutHeading">Über mich</div>
+      <div class="about-content">
+        <div class="about-text">
+          <p class="about-lead" data-i18n="aboutText1">Hallo! Ich bin Mohamed Amarkouchi, ein angehender IT-Spezialist mit einem Abschluss in Economics &amp; Management.</p>
+          <p data-i18n="aboutText2">Meine Leidenschaft liegt darin, digitale Lösungen zu entwickeln, die Geschäftsprozesse vereinfachen und Lerninhalte interaktiv gestalten.</p>
+          <p data-i18n="aboutText3">Ich kombiniere wirtschaftliches Denken mit technischen Fähigkeiten (HTML, CSS, JavaScript) und entwickle mich ständig weiter.</p>
+          <p data-i18n="aboutText4">Mein Ziel ist es, in einem praxisnahen Umfeld weiter zu lernen und Unternehmen bei ihrer digitalen Transformation zu unterstützen.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-pill">HTML5</div>
+          <div class="skill-pill">CSS3</div>
+          <div class="skill-pill">JavaScript</div>
+          <div class="skill-pill">UI Design</div>
+          <div class="skill-pill">Responsive</div>
+          <div class="skill-pill">Git</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <p><span data-i18n="aboutText1">Hallo! Ich bin Mohamed Amarkouchi, ein angehender IT-Spezialist mit einem Abschluss in Economics & Management.</span></p>
-
-  <p><span data-i18n="aboutText2">Meine Leidenschaft liegt darin, digitale Lösungen zu entwickeln, die Geschäftsprozesse vereinfachen und Lerninhalte interaktiv gestalten. Während meiner Lernreise habe ich mehrere Webprojekte umgesetzt – von einfachen Login-Seiten bis zu einer interaktiven App zum Üben deutscher Verben (Deutsche Verben Meister).</span></p>
-
-  <p><span data-i18n="aboutText3">Ich kombiniere wirtschaftliches Denken mit technischen Fähigkeiten (HTML, CSS, JavaScript) und entwickle mich ständig weiter. Derzeit bereite ich mich auf das Goethe B2 Zertifikat vor, um meine Ausbildung in Deutschland zu beginnen.</span></p>
-
-  <p><span data-i18n="aboutText4">Mein Ziel ist es, in einem praxisnahen Umfeld weiter zu lernen und Unternehmen bei ihrer digitalen Transformation zu unterstützen.</span></p>
-</section>
-
-   <!-- Projecta -->
-  <section id="projects" class="projects">
-    <h2 data-i18n="projectsHeading">Ausgewählte Projekte</h2>
+  <!-- Projects -->
+  <section id="projects" class="projects reveal-section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 data-i18n="projectsHeading">Ausgewählte Projekte</h2>
+    </div>
     <div class="project-grid">
-      <!-- Project 1 -->
+
       <div class="project-card">
-        <img src="https://raw.githubusercontent.com/amarko-med/html-login-page/refs/heads/main/Designer%20(1).png" alt="Projekt Eins">
-        <div class="project-info">
-          <h3>Login page</h3>
-          <p><span data-i18n="descreption1">A responsive login interface with light/dark mode toggle, basic validation, and a personalized dashboard greeting.</span></p>
-          <div class="project-buttons">
-            <a href="https://amarko-med.github.io/html-login-page/" target="_blank">Live Demo</a>
-            <a href="https://github.com/amarko-med/html-login-page" target="_blank">GitHub</a>
+        <div class="card-img-wrap">
+          <img src="https://raw.githubusercontent.com/amarko-med/html-login-page/refs/heads/main/Designer%20(1).png" alt="Login Page" loading="lazy">
+          <div class="card-overlay">
+            <a href="https://amarko-med.github.io/html-login-page/" target="_blank" class="card-btn">Live Demo</a>
+            <a href="https://github.com/amarko-med/html-login-page" target="_blank" class="card-btn card-btn-ghost">GitHub</a>
+          </div>
+          <div class="card-desc-wrap">
+            <span class="card-desc-icon">◈ About</span>
+            <p class="card-desc" data-i18n="descreption1">A responsive login interface with light/dark mode toggle, basic validation, and a personalized dashboard greeting.</p>
           </div>
         </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project-card">
-        <img src="https://github.com/amarko-med/A-Tribute-to-Coffee/blob/main/coffee.jpg?raw=true" alt="Projekt Zwei">
-        <div class="project-info">
-          <h3>A Tribute to Coffee</h3>
-          <p><span data-i18n="descreption2">A warm and informative single-page website celebrating the global journey of coffee.</span></p>
-          <div class="project-buttons">
-            <a href="https://amarko-med.github.io/A-Tribute-to-Coffee/" target="_blank">Live Demo</a>
-            <a href="https://github.com/amarko-med/A-Tribute-to-Coffee" target="_blank">GitHub</a>
-          </div>
+        <div class="card-body">
+          <div class="card-meta"><div class="card-tag">Web App</div></div>
+          <h3 class="card-title">Login Page</h3>
         </div>
       </div>
-
-      <!-- Project 3 -->
       <div class="project-card">
-        <img src="https://github.com/amarko-med/DeutscheVerbenMeister/blob/main/images/deutschverbmeister.jpg?raw=true" alt="Projekt Drei">
-        <div class="project-info">
-          <h3>Deutsche Verben Meister</h3>
-          <p><span data-i18n="descreption3">A German verb trainer app that helps learners practice verb structures (Akkusativ/Dativ) over a 6-day learning schedule.
-            The tool corrects user answers and helps reinforce understanding through repetition and feedback.</span></p>
-          <div class="project-buttons">
-            <a href="https://amarko-med.github.io/DeutscheVerbenMeister/" target="_blank">Live Demo</a>
-            <a href="https://github.com/amarko-med/DeutscheVerbenMeister" target="_blank">GitHub</a>
+        <div class="card-img-wrap">
+          <img src="https://github.com/amarko-med/A-Tribute-to-Coffee/blob/main/coffee.jpg?raw=true" alt="A Tribute to Coffee" loading="lazy">
+          <div class="card-overlay">
+            <a href="https://amarko-med.github.io/A-Tribute-to-Coffee/" target="_blank" class="card-btn">Live Demo</a>
+            <a href="https://github.com/amarko-med/A-Tribute-to-Coffee" target="_blank" class="card-btn card-btn-ghost">GitHub</a>
+          </div>
+          <div class="card-desc-wrap">
+            <span class="card-desc-icon">◈ About</span>
+            <p class="card-desc" data-i18n="descreption2">A warm and informative single-page website celebrating the global journey of coffee.</p>
           </div>
         </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="project-card">
-        <img src="https://github.com/amarko-med/RPG-Dragon-Quest/blob/main/images/RPGgame.jpg?raw=true" alt="Projekt Vier">
-        <div class="project-info">
-          <h3>Dragon-Quest</h3>
-          <p><span data-i18n="descreption4">A simple RPG game where you battle against monsters to save the town from the dragon.
-            The game lets you explore different locations, manage your stats (health, gold, XP), and engage in turn-based combat.</span></p>
-          <div class="project-buttons">
-            <a href="https://amarko-med.github.io/RPG-Dragon-Quest/" target="_blank">Live Demo</a>
-            <a href="https://github.com/amarko-med/RPG-Dragon-Quest" target="_blank">GitHub</a>
-          </div>
+        <div class="card-body">
+          <div class="card-meta"><div class="card-tag">Landing Page</div></div>
+          <h3 class="card-title">A Tribute to Coffee</h3>
         </div>
       </div>
-
-      <!-- Project 5 -->
       <div class="project-card">
-        <img src="https://raw.githubusercontent.com/amarko-med/AdminSuite/refs/heads/main/Designer.png" alt="Projekt Fünf">
-        <div class="project-info">
-          <h3>AdminSuite</h3>
-          <p><span data-i18n="descreption5">A modern CRM dashboard to manage products, customers, employees, and orders with a clean, interactive interface.</span></p>
-          <div class="project-buttons">
-            <a href="https://amarko-med.github.io/AdminSuite/" target="_blank">Live Demo</a>
-            <a href="https://github.com/amarko-med/AdminSuite" target="_blank">GitHub</a>
+        <div class="card-img-wrap">
+          <img src="https://github.com/amarko-med/DeutscheVerbenMeister/blob/main/images/deutschverbmeister.jpg?raw=true" alt="Deutsche Verben Meister" loading="lazy">
+          <div class="card-overlay">
+            <a href="https://amarko-med.github.io/DeutscheVerbenMeister/" target="_blank" class="card-btn">Live Demo</a>
+            <a href="https://github.com/amarko-med/DeutscheVerbenMeister" target="_blank" class="card-btn card-btn-ghost">GitHub</a>
           </div>
+          <div class="card-desc-wrap">
+            <span class="card-desc-icon">◈ About</span>
+            <p class="card-desc" data-i18n="descreption3">A German verb trainer app that helps learners practice verb structures over a 6-day learning schedule.</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><div class="card-tag">Lern-App</div></div>
+          <h3 class="card-title">Deutsche Verben Meister</h3>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="https://github.com/amarko-med/RPG-Dragon-Quest/blob/main/images/RPGgame.jpg?raw=true" alt="Dragon Quest" loading="lazy">
+          <div class="card-overlay">
+            <a href="https://amarko-med.github.io/RPG-Dragon-Quest/" target="_blank" class="card-btn">Live Demo</a>
+            <a href="https://github.com/amarko-med/RPG-Dragon-Quest" target="_blank" class="card-btn card-btn-ghost">GitHub</a>
+          </div>
+          <div class="card-desc-wrap">
+            <span class="card-desc-icon">◈ About</span>
+            <p class="card-desc" data-i18n="descreption4">An RPG game where you battle monsters to save the town from the dragon, with turn-based combat.</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><div class="card-tag">Game</div></div>
+          <h3 class="card-title">Dragon Quest</h3>
+        </div>
+      </div>
+      <div class="project-card project-card--full">
+        <div class="card-img-wrap">
+          <img src="https://raw.githubusercontent.com/amarko-med/AdminSuite/refs/heads/main/Designer.png" alt="AdminSuite" loading="lazy">
+          <div class="card-overlay">
+            <a href="https://amarko-med.github.io/AdminSuite/" target="_blank" class="card-btn">Live Demo</a>
+            <a href="https://github.com/amarko-med/AdminSuite" target="_blank" class="card-btn card-btn-ghost">GitHub</a>
+          </div>
+          <div class="card-desc-wrap">
+            <span class="card-desc-icon">◈ About</span>
+            <p class="card-desc" data-i18n="descreption5">A modern CRM dashboard to manage products, customers, employees, and orders with a clean, interactive interface.</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><div class="card-tag">Dashboard</div></div>
+          <h3 class="card-title">AdminSuite</h3>
         </div>
       </div>
 
     </div>
   </section>
 
+  <!-- Certificates -->
+  <section id="certificates" class="certificates reveal-section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 data-i18n="certsHeading">Zertifikate</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-glow"></div>
+        <div class="cert-top">
+          <div class="cert-badge">🎓</div>
+          <a class="cert-view" href="https://www.freecodecamp.org/certification/mohamed-amarkouchi/responsive-web-design" target="_blank" data-i18n="certView">Ansehen →</a>
+        </div>
+        <h3 data-i18n="cert1Title">Responsive Web Design</h3>
+        <p class="cert-issuer" data-i18n="cert1Issuer">freeCodeCamp</p>
+        <div class="cert-bar"><div class="cert-fill" style="width:100%"></div></div>
+        <p class="cert-date" data-i18n="cert1Date">May 2,2025</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-glow"></div>
+        <div class="cert-top">
+          <div class="cert-badge">B1</div>
+          <a class="cert-view" href="https://github.com/amk-med/portfolio/blob/main/Zertifikate%20-%20digital_pages-to-jpg-0001.jpg?raw=true" target="_blank" data-i18n="certView">Ansehen →</a>
+        </div>
+        <h3 data-i18n="cert4Title">Goethe-Zertifikat B1</h3>
+        <p class="cert-issuer" data-i18n="cert4Issuer">Goethe-Institut</p>
+        <div class="cert-bar"><div class="cert-fill" style="width:100%"></div></div>
+        <p class="cert-date" data-i18n="cert4Date">Oct 17,2025</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-glow"></div>
+        <div class="cert-top">
+          <div class="cert-badge">💻</div>
+          <a class="cert-view" href="https://www.freecodecamp.org/certification/mohamed-amarkouchi/javascript-algorithms-and-data-structures-v8" target="_blank" data-i18n="certView">Ansehen →</a>
+        </div>
+        <h3 data-i18n="cert2Title">JavaScript Algorithms &amp; Data Structures</h3>
+        <p class="cert-issuer" data-i18n="cert2Issuer">freeCodeCamp</p>
+        <div class="cert-bar"><div class="cert-fill" style="width:100%"></div></div>
+        <p class="cert-date" data-i18n="cert2Date">Sep 24,2025</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-glow"></div>
+        <div class="cert-top">
+          <div class="cert-badge">📊</div>
+          <a class="cert-view" href="https://github.com/amk-med/portfolio/blob/main/google%20cer.PNG?raw=true" target="_blank" data-i18n="certView">Ansehen →</a>
+        </div>
+        <h3 data-i18n="cert5Title">Fundamentals of Digital Marketing</h3>
+        <p class="cert-issuer" data-i18n="cert5Issuer">Google Garage</p>
+        <div class="cert-bar"><div class="cert-fill" style="width:100%"></div></div>
+        <p class="cert-date" data-i18n="cert5Date">Sep 27,2025</p>
+      </div><div class="cert-card cert-card--progress">
+        <div class="cert-glow"></div>
+        <div class="cert-top">
+          <div class="cert-badge">B2</div>
+          <a class="cert-view" href="#" target="_blank" data-i18n="certView">Ansehen →</a>
+        </div>
+        <h3 data-i18n="cert3Title">Goethe-Zertifikat B2</h3>
+        <p class="cert-issuer" data-i18n="cert3Issuer">Goethe-Institut</p>
+        <div class="cert-bar"><div class="cert-fill" style="width:65%"></div></div>
+        <p class="cert-date" data-i18n="cert3Date">In Vorbereitung</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
-<section id="contact" class="contact">
-  <h2 data-i18n="contactHeading">Lass uns vernetzen</h2>
-  <div class="contact-card">
-    <!-- Gmail -->
-    <a href="mailto:Amarkouchi5@gmail.com" target="_blank" aria-label="E-Mail">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="E-Mail" class="icon">
-      <span class="label" data-i18n="emailLabel">E-Mail</span>
-    </a>
-
-    <!-- GitHub -->
-    <a href="https://github.com/amarko-med" target="_blank" aria-label="GitHub">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="icon">
-      <span class="label" data-i18n="githubLabel">GitHub</span>
-    </a>
-
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/med-am-b1982323a/" target="_blank" aria-label="LinkedIn">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="icon">
-      <span class="label" data-i18n="linkedinLabel">LinkedIn</span>
-    </a>
-  </div>
-</section>
+  <section id="contact" class="contact reveal-section">
+    <div class="contact-inner">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <h2 data-i18n="contactHeading">Lass uns vernetzen</h2>
+      </div>
+      <h3 class="contact-headline" data-i18n="contactHeadline">Lass uns etwas <em>Großartiges</em> zusammen bauen.</h3>
+      <p class="contact-sub" data-i18n="contactSub">Bereit für neue Möglichkeiten. Schreib mir!</p>
+      <div class="contact-grid">
+        <a href="/cdn-cgi/l/email-protection#5c1d313d2e3733293f3435691c3b313d3530723f3331" target="_blank" class="contact-card contact-card--gmail">
+          <div class="contact-card-icon"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail"></div>
+          <div>
+            <span class="contact-card-label" data-i18n="emailLabel">E-Mail</span>
+            <span class="contact-card-hint">amarkouchi@gmail.com</span>
+          </div>
+          <svg class="contact-card-arrow" width="18" height="18" viewBox="0 0 20 20"><path d="M5 10h10M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+        <a href="https://github.com/amarko-med" target="_blank" class="contact-card contact-card--github">
+          <div class="contact-card-icon"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></div>
+          <div>
+            <span class="contact-card-label" data-i18n="githubLabel">GitHub</span>
+            <span class="contact-card-hint">amarko-med</span>
+          </div>
+          <svg class="contact-card-arrow" width="18" height="18" viewBox="0 0 20 20"><path d="M5 10h10M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/med-am-b1982323a/" target="_blank" class="contact-card contact-card--linkedin">
+          <div class="contact-card-icon"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></div>
+          <div>
+            <span class="contact-card-label" data-i18n="linkedinLabel">LinkedIn</span>
+            <span class="contact-card-hint">Mohamed Amarkouchi</span>
+          </div>
+          <svg class="contact-card-arrow" width="18" height="18" viewBox="0 0 20 20"><path d="M5 10h10M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <span data-i18n="footer">© 2025 Mohamed Amarkouchi. Alle Rechte vorbehalten.</span>
   </footer>
 
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-   const translations = {
-  de: {
-    title: "Mohamed Amarkouchi | Kreativer Entwickler",
-    heroName: "Mohamed Amarkouchi",
-    heroTagline: "Kreativer Entwickler & UI-Designer",
-    ctaWork: "Meine Arbeiten ansehen",
-    ctaWork1: "Über mich",
-    ctaWork2: "Kontact",
-    aboutHeading: "Über mich",
-    aboutText1: "Hallo! Ich bin Mohamed Amarkouchi, ein angehender IT-Spezialist mit einem Abschluss in Economics & Management.",
-    aboutText2: "Meine Leidenschaft liegt darin, digitale Lösungen zu entwickeln, die Geschäftsprozesse vereinfachen und Lerninhalte interaktiv gestalten. Während meiner Lernreise habe ich mehrere Webprojekte umgesetzt – von einfachen Login-Seiten bis zu einer interaktiven App zum Üben deutscher Verben (Deutsche Verben Meister).",
-    aboutText3: "Ich kombiniere wirtschaftliches Denken mit technischen Fähigkeiten (HTML, CSS, JavaScript) und entwickle mich ständig weiter. Derzeit bereite ich mich auf das Goethe B2 Zertifikat vor, um meine Ausbildung in Deutschland zu beginnen.",
-    aboutText4: "Mein Ziel ist es, in einem praxisnahen Umfeld weiter zu lernen und Unternehmen bei ihrer digitalen Transformation zu unterstützen.",
-    descreption1: "Eine responsive Login-Oberfläche mit Umschaltung zwischen Hell- und Dunkelmodus, grundlegender Validierung und einer personalisierten Dashboard-Begrüßung.",
-    descreption2: "Eine warme und informative Einzelseiten-Website, die die weltweite Reise des Kaffees feiert.",
-    descreption3: "Eine deutsche Verbtrainer-App, die Lernenden hilft, Verbstrukturen (Akkusativ/Dativ) über einen sechstägigen Lernplan zu üben, das Tool korrigiert die Antworten der Nutzer und fördert das Verständnis durch Wiederholung und Feedback",
-    descreption4: "Ein einfaches RPG-Spiel, in dem du gegen Monster kämpfst, um die Stadt vor dem Drachen zu retten,das Spiel ermöglicht es dir, verschiedene Orte zu erkunden, deine Werte (Gesundheit, Gold, Erfahrungspunkte) zu verwalten und rundenbasiert zu kämpfen.",
-    descreption5: "Ein modernes CRM-Dashboard zur Verwaltung von Produkten, Kunden, Mitarbeitern und Bestellungen mit einer sauberen, interaktiven Benutzeroberfläche.",
-    projectsHeading: "Ausgewählte Projekte",
-    p1Title: "Projekt Eins",
-    p1Desc: "Beschreibung von Projekt Eins.",
-    p2Title: "Projekt Zwei",
-    p2Desc: "Portfolio mit dynamischem Content-Loading und sanften Übergängen.",
-    p3Title: "Projekt Drei",
-    p3Desc: "Interaktives Dashboard mit Echtzeit-Updates.",
-    p4Title: "Projekt Vier",
-    p4Desc: "Web-App mit responsivem Design und Animationen.",
-    p5Title: "Projekt Fünf",
-    p5Desc: "E-Commerce Frontend mit benutzerfreundlicher Oberfläche.",
-    contactHeading: "Lass uns vernetzen",
-    email: "E-Mail",
-    github: "GitHub",
-    linkedin: "LinkedIn",
-    footer: "© 2025 Mohamed Amarkouchi. Alle Rechte vorbehalten."
-  },
-  en: {
-    title: "Mohamed Amarkouchi | Creative Developer",
-    heroName: "Mohamed Amarkouchi",
-    heroTagline: "Creative Developer & UI Designer",
-    ctaWork: "View My Work",
-    ctaWork1: "About me",
-    ctaWork2: "Contact",
-    aboutHeading: "About Me",
-    aboutText1: "Hi! I’m Mohamed Amarkouchi, an aspiring IT specialist with a degree in Economics & Management.",
-    aboutText2: "I’m passionate about creating digital solutions that simplify business processes and make learning more interactive. I’ve built several web projects — from simple login pages to an interactive German verb trainer (Deutsche Verben Meister).",
-    aboutText3: "I combine business thinking with technical skills (HTML, CSS, JavaScript) and continuously improve. I’m currently preparing for my Goethe B2 certificate to start an Ausbildung in Germany.",
-    aboutText4: "My goal is to keep learning in a practical environment and help businesses with their digital transformation.",
-    descreption1: "A responsive login interface with light/dark mode toggle, basic validation, and a personalized dashboard greeting.",
-    descreption2: "A warm and informative single-page website celebrating the global journey of coffee.",
-    descreption3: "A German verb trainer app that helps learners practice verb structures (Akkusativ/Dativ) over a 6-day learning schedule, the tool corrects user answers and helps reinforce understanding through repetition and feedback.",
-    descreption4: "A simple RPG game where you battle against monsters to save the town from the dragon, the game lets you explore different locations, manage your stats (health, gold, XP), and engage in turn-based combat.",
-    descreption5: "A modern CRM dashboard to manage products, customers, employees, and orders with a clean, interactive interface.",
-    projectsHeading: "Featured Projects",
-    p1Title: "Project One",
-    p1Desc: "Description of Project One.",
-    p2Title: "Project Two",
-    p2Desc: "Portfolio with dynamic content loading and smooth transitions.",
-    p3Title: "Project Three",
-    p3Desc: "Interactive dashboard with real-time updates.",
-    p4Title: "Project Four",
-    p4Desc: "Web app with responsive design and animations.",
-    p5Title: "Project Five",
-    p5Desc: "E-commerce frontend with user-friendly interface.",
-    contactHeading: "Let’s Connect",
-    email: "Email",
-    github: "GitHub",
-    linkedin: "LinkedIn",
-    footer: "© 2025 Mohamed Amarkouchi. All rights reserved."
-  },
-  fr: {
-    title: "Mohamed Amarkouchi | Développeur créatif",
-    heroName: "Mohamed Amarkouchi",
-    heroTagline: "Développeur créatif & designer UI",
-    ctaWork: "Voir mes projets",
-    ctaWork2: "Contact",
-    aboutHeading: "À propos",
-    aboutText1: "Bonjour ! Je m'appelle Mohamed Amarkouchi, un futur spécialiste en informatique avec un diplôme en économie et gestion.",
-    aboutText2: "Je suis passionné par la création d'outils numériques qui simplifient les processus commerciaux et rendent l'apprentissage plus interactif. J'ai déjà développé plusieurs projets web – de simples pages de connexion à une application interactive pour pratiquer les verbes allemands.",
-    aboutText3: "Je combine ma formation en gestion avec mes compétences techniques (HTML, CSS, JavaScript) et j'améliore constamment mes connaissances. Actuellement, je prépare mon certificat Goethe B2 afin de commencer une formation en Allemagne.",
-    aboutText4: "Mon objectif est de continuer à apprendre dans un environnement pratique et d’aider les entreprises dans leur transformation digitale.",
-    descreption1: "Une interface de connexion responsive avec bascule mode clair/sombre, validation de base et message de bienvenue personnalisé sur le tableau de bord.",
-    descreption2: "Un site web d’une seule page, chaleureux et informatif, célébrant le voyage mondial du café.",
-    descreption3: "Une application d’entraînement aux verbes allemands qui aide les apprenants à pratiquer les structures verbales (accusatif/dat) selon un programme d’apprentissage sur six jours, l’outil corrige les réponses des utilisateurs et renforce la compréhension grâce à la répétition et aux retours personnalisés.",
-    descreption4: "Un jeu RPG simple où vous combattez des monstres pour sauver la ville du dragon,le jeu vous permet d’explorer différents lieux, de gérer vos statistiques (santé, or, expérience) et de participer à des combats au tour par tour.",
-    descreption5: "Un tableau de bord CRM moderne pour gérer les produits, les clients, les employés et les commandes, avec une interface propre et interactive.",
-    projectsHeading: "Projets phares",
-    p1Title: "Projet Un",
-    p1Desc: "Description du projet Un.",
-    p2Title: "Projet Deux",
-    p2Desc: "Portfolio avec chargement dynamique du contenu et transitions fluides.",
-    p3Title: "Projet Trois",
-    p3Desc: "Tableau de bord interactif avec mises à jour en temps réel.",
-    p4Title: "Projet Quatre",
-    p4Desc: "Application web avec design réactif et animations.",
-    p5Title: "Projet Cinq",
-    p5Desc: "Frontend e-commerce avec interface conviviale.",
-    contactHeading: "Restons en contact",
-    email: "E-mail",
-    github: "GitHub",
-    linkedin: "LinkedIn",
-    footer: "© 2025 Mohamed Amarkouchi. Tous droits réservés."
-  },
-  ar: {
-    title: "أمركوشي محمد. | مطور إبداعي",
-    heroName: "أمركوشي محمد",
-    heroTagline: "مطور واجهات وتجارب مستخدم",
-    ctaWork: "استعرض أعمالي",
-    ctaWork1: "حولي",
-    ctaWork2: "التواصل",
-    aboutHeading: "نبذة عني",
-    aboutText1: "مرحباً! اسمي محمد أمركوشي، متخصص طموح في مجال تكنولوجيا المعلومات وحاصل على شهادة جامعية في الاقتصاد والإدارة.",
-    aboutText2: "شغفي هو تطوير أدوات رقمية تُسهّل العمليات التجارية وتجعل التعلم أكثر تفاعل. قمت بتطوير عدة مشاريع ويب – من صفحات تسجيل دخول بسيطة إلى تطبيق تفاعلي لتعلم الأفعال الألمانية.",
-    aboutText3: "أجمع بين معرفتي الاقتصادية ومهاراتي التقنية (HTML, CSS, JavaScript) وأسعى دائماً لتحسين قدراتي. حالياً أستعد لاجتياز شهادة غوته B2 لبدء تكوين مهني في ألمانيا.",
-    aboutText4: "هدفي هو الاستمرار في التعلم في بيئة عملية ومساعدة الشركات في التحول الرقمي.",
-    descreption1: "واجهة تسجيل دخول متجاوبة مع خيار التبديل بين الوضع الفاتح والداكن، تحقق أساسي، وترحيب مخصص في لوحةالمعلومات.",
-    descreption2: "موقع إلكتروني مكوّن من صفحة واحدة دافئة وغنية بالمعلومات يحتفي بالرحلة العالمية للقهوة.",
-    descreption3: "تطبيق لتدريب الأفعال الألمانية يساعد المتعلمين على ممارسة تراكيب الأفعال (المفعول به المباشر/غير المباشر) ضمن خطة تعلم مدتها ستة أيام.يقوم التطبيق بتصحيح إجابات المستخدمين ويساعد على تعزيز الفهم من خلال التكرار والتغذية الراجعة.",
-    descreption4: "لعبة RPG بسيطة تقاتل فيها الوحوش لإنقاذ المدينة من التنين.تتيح لك اللعبة استكشاف مواقع مختلفة، وإدارة إحصاءاتك (الصحة، الذهب، الخبرة)، وخوض معارك تعتمد على الأدوار.",
-    descreption5: "لوحة تحكم CRM حديثة لإدارة المنتجات والعملاء والموظفين والطلبات، بواجهة نظيفة وتفاعلية.",
-    projectsHeading: "أبرز المشاريع",
-    p1Title: "المشروع الأول",
-    p1Desc: "وصف المشروع الأول.",
-    p2Title: "المشروع الثاني",
-    p2Desc: "موقع معرض أعمال بتحميل ديناميكي للمحتوى وانتقالات سلسة.",
-    p3Title: "المشروع الثالث",
-    p3Desc: "لوحة معلومات تفاعلية بتحديثات فورية.",
-    p4Title: "المشروع الرابع",
-    p4Desc: "تطبيق ويب بتصميم متجاوب وحركات متحركة.",
-    p5Title: "المشروع الخامس",
-    p5Desc: "واجهة متجر إلكتروني مع واجهة سهلة الاستخدام.",
-    contactHeading: "لنتواصل",
-    footer: "© 2025 أمركوشي محمد. جميع الحقوق محفوظة."
-  }
-};
-    const langBtn = document.querySelector('.lang-btn');
-    const langSwitcher = document.querySelector('.lang-switcher');
-    const langListItems = document.querySelectorAll('.lang-list li');
-
-    function applyTranslations(lang) {
-      const dict = translations[lang] || translations.de;
-      document.documentElement.lang = lang;
-      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (key && dict[key] !== undefined) el.textContent = dict[key];
-      });
-      if (dict.title) document.title = dict.title;
+  const translations = {
+    de: {
+      title: "Mohamed Amarkouchi | Kreativer Entwickler",
+      heroAvail: "Offen für Ausbildung",
+      heroFirstLine: "Mohamed",
+      heroSecondLine: "Amarkouchi",
+      heroTagline: "Kreativer Entwickler & UI-Designer",
+      ctaWork: "Meine Projekte", ctaWork1: "Über mich", ctaCerts: "Zertifikate", ctaWork2: "Kontakt",
+      statProjects: "Projekte", statCerts: "Zertifikate", statLangs: "Sprachen", scrollHint: "scroll",
+      aboutHeading: "Über mich",
+      aboutText1: "Hallo! Ich bin Mohamed Amarkouchi, ein angehender IT-Spezialist mit einem Abschluss in Economics & Management.",
+      aboutText2: "Meine Leidenschaft liegt darin, digitale Lösungen zu entwickeln, die Geschäftsprozesse vereinfachen und Lerninhalte interaktiv gestalten.",
+      aboutText3: "Ich kombiniere wirtschaftliches Denken mit technischen Fähigkeiten (HTML, CSS, JavaScript) und entwickle mich ständig weiter.",
+      aboutText4: "Mein Ziel ist es, in einem praxisnahen Umfeld weiter zu lernen und Unternehmen bei ihrer digitalen Transformation zu unterstützen.",
+      projectsHeading: "Ausgewählte Projekte",
+      descreption1: "Eine responsive Login-Oberfläche mit Hell-/Dunkelmodus-Umschaltung und personalisierter Dashboard-Begrüßung.",
+      descreption2: "Eine warme und informative Einzelseiten-Website, die die weltweite Reise des Kaffees feiert.",
+      descreption3: "Eine deutsche Verbtrainer-App mit sechstägigem Lernplan, Korrektur und Feedback.",
+      descreption4: "Ein RPG-Spiel, in dem du gegen Monster kämpfst, um die Stadt vor dem Drachen zu retten.",
+      descreption5: "Ein modernes CRM-Dashboard zur Verwaltung von Produkten, Kunden, Mitarbeitern und Bestellungen.",
+      certsHeading: "Zertifikate",
+      cert1Title: "Responsive Web Design", cert1Issuer: "freeCodeCamp", cert1Date: "May 2, 2025",
+      cert2Title: "JavaScript Algorithmen & Datenstrukturen", cert2Issuer: "freeCodeCamp", cert2Date: "Sep 24,2025",
+      cert3Title: "Goethe-Zertifikat B2", cert3Issuer: "Goethe-Institut", cert3Date: "In Vorbereitung",
+      certView: "Ansehen →",
+      cert4Title: "Goethe-Zertifikat B1", cert4Issuer: "Goethe-Institut", cert4Date: "Sep 7, 2025",
+      cert5Title: "Grundlagen des digitalen Marketings", cert5Issuer: "Google Garage", cert5Date: "Sep 27, 2025",
+      contactHeading: "Lass uns vernetzen", contactHeadline: "Lass uns etwas Großartiges zusammen bauen.", contactSub: "Bereit für neue Möglichkeiten. Schreib mir!",
+      emailLabel: "E-Mail", githubLabel: "GitHub", linkedinLabel: "LinkedIn",
+      footer: "© 2025 Mohamed Amarkouchi. Alle Rechte vorbehalten."
+    },
+    en: {
+      title: "Mohamed Amarkouchi | Creative Developer",
+      heroAvail: "Open to Ausbildung",
+      heroFirstLine: "Mohamed", heroSecondLine: "Amarkouchi",
+      heroTagline: "Creative Developer & UI Designer",
+      ctaWork: "My Projects", ctaWork1: "About Me", ctaCerts: "Certificates", ctaWork2: "Contact",
+      statProjects: "Projects", statCerts: "Certificates", statLangs: "Languages", scrollHint: "scroll",
+      aboutHeading: "About Me",
+      aboutText1: "Hi! I'm Mohamed Amarkouchi, an aspiring IT specialist with a degree in Economics & Management.",
+      aboutText2: "I'm passionate about creating digital solutions that simplify business processes and make learning more interactive.",
+      aboutText3: "I combine business thinking with technical skills (HTML, CSS, JavaScript) and continuously improve.",
+      aboutText4: "My goal is to keep learning in a practical environment and help businesses with their digital transformation.",
+      projectsHeading: "Featured Projects",
+      descreption1: "A responsive login interface with light/dark mode toggle, basic validation, and personalized dashboard greeting.",
+      descreption2: "A warm and informative single-page website celebrating the global journey of coffee.",
+      descreption3: "A German verb trainer app with a 6-day learning schedule, corrections and feedback.",
+      descreption4: "An RPG game where you battle monsters to save the town from the dragon.",
+      descreption5: "A modern CRM dashboard to manage products, customers, employees, and orders.",
+      certsHeading: "Certificates",
+      cert1Title: "Responsive Web Design", cert1Issuer: "freeCodeCamp", cert1Date: "May 2, 2025",
+      cert2Title: "JavaScript Algorithms & Data Structures", cert2Issuer: "freeCodeCamp", cert2Date: "Sep 24, 2025",
+      cert3Title: "Goethe Certificate B2", cert3Issuer: "Goethe-Institut", cert3Date: "In Progress",
+      certView: "View →",
+      cert4Title: "Goethe Certificate B1", cert4Issuer: "Goethe-Institut", cert4Date: "Sep 7, 2025",
+      cert5Title: "Fundamentals of Digital Marketing", cert5Issuer: "Google Garage", cert5Date: "Sep 27, 2025",
+      contactHeading: "Let's Connect", contactHeadline: "Let's build something great together.", contactSub: "Ready for new opportunities. Reach out!",
+      emailLabel: "E-Mail", githubLabel: "GitHub", linkedinLabel: "LinkedIn",
+      footer: "© 2025 Mohamed Amarkouchi. All rights reserved."
+    },
+    fr: {
+      title: "Mohamed Amarkouchi | Développeur créatif",
+      heroAvail: "Ouvert à l'apprentissage",
+      heroFirstLine: "Mohamed", heroSecondLine: "Amarkouchi",
+      heroTagline: "Développeur créatif & designer UI",
+      ctaWork: "Mes projets", ctaWork1: "À propos", ctaCerts: "Certificats", ctaWork2: "Contact",
+      statProjects: "Projets", statCerts: "Certificats", statLangs: "Langues", scrollHint: "défiler",
+      aboutHeading: "À propos",
+      aboutText1: "Bonjour ! Je m'appelle Mohamed Amarkouchi, futur spécialiste en informatique avec un diplôme en économie et gestion.",
+      aboutText2: "Je suis passionné par la création d'outils numériques qui simplifient les processus et rendent l'apprentissage plus interactif.",
+      aboutText3: "Je combine ma formation en gestion avec mes compétences techniques (HTML, CSS, JavaScript).",
+      aboutText4: "Mon objectif est de continuer à apprendre dans un environnement pratique et d'aider les entreprises dans leur transformation digitale.",
+      projectsHeading: "Projets phares",
+      descreption1: "Interface de connexion responsive avec bascule mode clair/sombre et message de bienvenue personnalisé.",
+      descreption2: "Un site web d'une seule page célébrant le voyage mondial du café.",
+      descreption3: "Application d'entraînement aux verbes allemands sur 6 jours avec corrections et retours.",
+      descreption4: "Un jeu RPG où vous combattez des monstres pour sauver la ville du dragon.",
+      descreption5: "Tableau de bord CRM moderne pour gérer produits, clients, employés et commandes.",
+      certsHeading: "Certificats",
+      cert1Title: "Responsive Web Design", cert1Issuer: "freeCodeCamp", cert1Date: "May 2, 2025",
+      cert2Title: "Algorithmes & Structures de Données JS", cert2Issuer: "freeCodeCamp", cert2Date: "Sep 24, 2025",
+      cert3Title: "Certificat Goethe B2", cert3Issuer: "Goethe-Institut", cert3Date: "En préparation",
+      certView: "Voir →",
+      cert4Title: "Certificat Goethe B1", cert4Issuer: "Goethe-Institut", cert4Date: "Sep 7, 2025",
+      cert5Title: "Fondamentaux du Marketing Digital", cert5Issuer: "Google Garage", cert5Date: "Sep 27, 2025",
+      contactHeading: "Restons en contact", contactHeadline: "Construisons quelque chose de grand ensemble.", contactSub: "Prêt pour de nouvelles opportunités. Écrivez-moi !",
+      emailLabel: "E-mail", githubLabel: "GitHub", linkedinLabel: "LinkedIn",
+      footer: "© 2025 Mohamed Amarkouchi. Tous droits réservés."
+    },
+    ar: {
+      title: "أمركوشي محمد | مطور إبداعي",
+      heroAvail: "مفتوح للتدريب المهني",
+      heroFirstLine: "محمد", heroSecondLine: "أمركوشي",
+      heroTagline: "مطور واجهات وتجارب مستخدم",
+      ctaWork: "أعمالي", ctaWork1: "حولي", ctaCerts: "الشهادات", ctaWork2: "التواصل",
+      statProjects: "مشاريع", statCerts: "شهادات", statLangs: "لغات", scrollHint: "تمرير",
+      aboutHeading: "نبذة عني",
+      aboutText1: "مرحباً! اسمي محمد أمركوشي، متخصص طموح في تكنولوجيا المعلومات وحاصل على شهادة في الاقتصاد والإدارة.",
+      aboutText2: "شغفي هو تطوير أدوات رقمية تُسهّل العمليات التجارية وتجعل التعلم أكثر تفاعلاً.",
+      aboutText3: "أجمع بين معرفتي الاقتصادية ومهاراتي التقنية (HTML, CSS, JavaScript).",
+      aboutText4: "هدفي هو الاستمرار في التعلم في بيئة عملية ومساعدة الشركات في التحول الرقمي.",
+      projectsHeading: "أبرز المشاريع",
+      descreption1: "واجهة تسجيل دخول متجاوبة مع تبديل بين الوضع الفاتح والداكن وترحيب مخصص.",
+      descreption2: "موقع احتفالي يحتفي بالرحلة العالمية للقهوة.",
+      descreption3: "تطبيق تدريب الأفعال الألمانية ضمن خطة تعلم مدتها ستة أيام.",
+      descreption4: "لعبة RPG تقاتل فيها الوحوش لإنقاذ المدينة من التنين.",
+      descreption5: "لوحة تحكم CRM حديثة لإدارة المنتجات والعملاء والموظفين والطلبات.",
+      certsHeading: "الشهادات",
+      cert1Title: "تصميم الويب المتجاوب", cert1Issuer: "freeCodeCamp", cert1Date: "May 2, 2025",
+      cert2Title: "خوارزميات وهياكل بيانات JavaScript", cert2Issuer: "freeCodeCamp", cert2Date: "Sep 24, 2025",
+      cert3Title: "شهادة غوته B2", cert3Issuer: "معهد غوته", cert3Date: "قيد الإعداد",
+      certView: "عرض →",
+      cert4Title: "شهادة غوته B1", cert4Issuer: "معهد غوته", cert4Date: "Sep 7, 2025",
+      cert5Title: "أساسيات التسويق الرقمي", cert5Issuer: "Google Garage", cert5Date: "Sep 27, 2025",
+      contactHeading: "لنتواصل", contactHeadline: "لنبني شيئاً رائعاً معاً.", contactSub: "مفتوح لفرص جديدة. تواصل معي!",
+      emailLabel: "البريد", githubLabel: "GitHub", linkedinLabel: "LinkedIn",
+      footer: "© 2025 أمركوشي محمد. جميع الحقوق محفوظة."
     }
+  };
 
-    const savedLang = localStorage.getItem('lang') || 'de';
-    langBtn.textContent = savedLang.toUpperCase();
-    applyTranslations(savedLang);
+  // Language Switcher
+  const langBtn = document.querySelector('.lang-btn');
+  const langSwitcher = document.querySelector('.lang-switcher');
+  const langListItems = document.querySelectorAll('.lang-list li');
 
-    langBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const active = langSwitcher.classList.toggle('active');
-      langBtn.setAttribute('aria-expanded', active ? 'true' : 'false');
-      const list = langSwitcher.querySelector('.lang-list');
-      if (active) list.setAttribute('aria-hidden','false'); else list.setAttribute('aria-hidden','true');
+  function applyTranslations(lang) {
+    const dict = translations[lang] || translations.de;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (key && dict[key] !== undefined) el.textContent = dict[key];
     });
-
-    langListItems.forEach(li => {
-      li.addEventListener('click', (e) => {
-        const lang = li.dataset.lang;
-        langBtn.textContent = li.textContent;
-        langSwitcher.classList.remove('active');
-        langBtn.setAttribute('aria-expanded','false');
-        langSwitcher.querySelector('.lang-list').setAttribute('aria-hidden','true');
-
-        setTimeout(() => {
-          localStorage.setItem('lang', lang);
-          applyTranslations(lang);
-        }, 150);
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!langSwitcher.contains(e.target)) {
-        langSwitcher.classList.remove('active');
-        langBtn.setAttribute('aria-expanded','false');
-        langSwitcher.querySelector('.lang-list').setAttribute('aria-hidden','true');
-      }
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        langSwitcher.classList.remove('active');
-        langBtn.setAttribute('aria-expanded','false');
-        langSwitcher.querySelector('.lang-list').setAttribute('aria-hidden','true');
-      }
-    });
-  
-(function () {
-  const triggers = Array.from(document.querySelectorAll(
-    'a[href="#projects"], [data-i18n="ctaWork"], [data-key="my-projects"]'
-  ));
-
-  if (!triggers.length) {
-    console.warn('Smooth scroll: no trigger elements found for #projects.');
-    return;
+    if (dict.title) document.title = dict.title;
+    const flag = document.getElementById('langFlag');
+    if (flag) flag.textContent = lang.toUpperCase();
   }
 
-  const target = document.getElementById('projects');
-  if (!target) {
-    console.warn('Smooth scroll: target element with id="projects" not found.');
-    return;
-  }
+  const savedLang = localStorage.getItem('lang') || 'de';
+  applyTranslations(savedLang);
 
-  function getScrollTopForTarget(elem) {
-    const rect = elem.getBoundingClientRect();
-    const scrollY = window.scrollY || window.pageYOffset;
-    const navbar = document.querySelector('.navbar');
-    const navbarFixed = navbar && getComputedStyle(navbar).position === 'fixed';
-    const navbarHeight = navbarFixed ? navbar.offsetHeight : 0;
-    const extraGap = 12;
-    return Math.round(rect.top + scrollY - navbarHeight - extraGap);
-  }
-
-  function smoothScrollToTarget(e) {
-    if (e && typeof e.preventDefault === 'function') e.preventDefault();
-
-    const top = getScrollTopForTarget(target);
-
-    try {
-      window.scrollTo({ top, behavior: 'smooth' });
-    } catch (err) {
-      window.scrollTo(0, top);
-    }
-  }
-
-  triggers.forEach(el => {
-    el.addEventListener('click', (ev) => {
-      smoothScrollToTarget(ev);
+  langBtn.addEventListener('click', e => { e.stopPropagation(); const a = langSwitcher.classList.toggle('active'); langBtn.setAttribute('aria-expanded', String(a)); });
+  langListItems.forEach(li => {
+    li.addEventListener('click', () => {
+      const lang = li.dataset.lang;
+      langSwitcher.classList.remove('active');
+      setTimeout(() => { localStorage.setItem('lang', lang); applyTranslations(lang); }, 120);
     });
   });
+  document.addEventListener('click', e => { if (!langSwitcher.contains(e.target)) langSwitcher.classList.remove('active'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') langSwitcher.classList.remove('active'); });
 
-  if (location.hash === '#projects') {
-    setTimeout(() => smoothScrollToTarget(), 60);
-  }
-})();
-</script>
+  // Sticky Nav
+  const topnav = document.getElementById('topnav');
+  window.addEventListener('scroll', () => { topnav.classList.toggle('nav-visible', window.scrollY > 80); }, { passive: true });
+
+  // Scroll Reveal
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal-section').forEach(el => revealObs.observe(el));
+
+  // Hero Canvas
+  (function() {
+    const canvas = document.getElementById('heroCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+    function rand(a,b) { return a + Math.random()*(b-a); }
+    function init() {
+      particles = [];
+      for (let i = 0; i < 90; i++) particles.push({ x: rand(0,W), y: rand(0,H), r: rand(0.8,2.8), vx: rand(-0.18,0.18), vy: rand(-0.18,0.18), a: rand(0.35,0.85) });
+    }
+    function draw() {
+      ctx.clearRect(0,0,W,H);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(210,215,255,${p.a})`; ctx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+        for (let j = i+1; j < particles.length; j++) {
+          const q = particles[j], dx = p.x-q.x, dy = p.y-q.y, d = Math.sqrt(dx*dx+dy*dy);
+          if (d < 100) { ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.strokeStyle = `rgba(180,190,255,${0.18*(1-d/100)})`; ctx.lineWidth=0.5; ctx.stroke(); }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    resize(); init(); draw();
+    window.addEventListener('resize', () => { resize(); init(); });
+  })();
+
+  // Custom Cursor
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; dot.style.transform=`translate(${mx}px,${my}px)`; });
+  (function animRing(){ rx+=(mx-rx)*0.1; ry+=(my-ry)*0.1; ring.style.transform=`translate(${rx}px,${ry}px)`; requestAnimationFrame(animRing); })();
+  document.querySelectorAll('a,button,.project-card,.cert-card').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('ring-grow'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('ring-grow'));
+  });
+
+  // Cert bar animation on scroll
+  const certObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.cert-fill').forEach(bar => { const w=bar.style.width; bar.style.width='0'; setTimeout(()=>{ bar.style.width=w; },120); });
+        certObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.cert-card').forEach(c => certObs.observe(c));
+
+  </script>
 </body>
 </html>
